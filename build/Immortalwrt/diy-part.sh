@@ -35,7 +35,7 @@ export PassWall_luci_branch="0"             # passwall的源码分别有【luci�
 
 # 替换OpenClash的源码(默认master分支)
 export OpenClash_branch="0"                 # OpenClash的源码分别有【master分支】和【dev分支】(填0为使用master分支,填1为使用dev分支)
-export OpenClash_Core="2"                   # 增加OpenClash时,把核心下载好,(填1为下载【dev单核】,填2为下载【dev/meta/premium三核】,填0为不需要核心)
+export OpenClash_Core="0"                   # 增加OpenClash时,把核心下载好,(填1为下载【dev单核】,填2为下载【dev/meta/premium三核】,填0为不需要核心)
 
 # 个性签名,默认增加年月日[$(TZ=UTC-8 date "+%Y.%m.%d")]
 export Customized_Information="$(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
@@ -89,8 +89,6 @@ sed -i 's/"带宽监控"/"监控"/g' `egrep "带宽监控" -rl ./`
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
 cat >"$CLEAR_PATH" <<-EOF
-packages
-config.buildinfo
 feeds.buildinfo
 sha256sums
 version.buildinfo
